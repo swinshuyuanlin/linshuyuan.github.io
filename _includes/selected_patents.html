@@ -1,0 +1,8 @@
+		  
+{% if site.scholar.enable_selected_publication_thumbnails %}
+<div class="publications">
+	{% bibliography -f {{ site.scholar.bibliography }} -T bib_selected --group_by none --query @patent*[selected=true]* %}
+</div>
+{% else %}
+	{% bibliography -f {{ site.scholar.bibliography }} -T bib_patent --query @patent --sort_by year --order ascending%}
+{% endif %}

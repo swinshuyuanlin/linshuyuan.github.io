@@ -1,0 +1,304 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+.content {
+    text-align: justify;
+}
+
+$base-font-family: "Open Sans", "Helvetica Neue", "DejaVu Sans", Arial, "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "微软雅黑",  Helvetica, sans-serif;
+$base-font-size:   16px;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$code-font-family:   Menlo, Monaco, Consolas, "DejaVu Sans Mono", "Liberation Mono", "文泉驿等宽微米黑", "Courier New", Courier, SimSun, monospace;
+$code-font-size:     15px;
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+$color-link: #036;
+$color-link-hover: #069;
+
+//$header-bg: #607D8B; //by lsy
+//$header-bg: #EEEEEE;
+//$header-bg-hover: #78909C;
+//$header-link: #CFD8DC;
+//$header-fg: #78909C;
+
+$header-bg: #EEEEEE;
+$header-bg-hover: #FAFAFA;
+$header-link: #607D8B;
+$header-fg: #607D8B;
+
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "base",
+        "animate",
+        "layout",
+        "syntax-highlighting",
+        "easybook"
+;
+
+
+
+// Publications
+
+.publications {
+  margin-top: 2rem;
+
+  h1 {
+    color: var(--global-theme-color);
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+
+    span {
+      font-size: 1.5rem;
+    }
+  }
+
+  h2.bibliography {
+    color: var(--global-divider-color);
+    border-top: 1px solid var(--global-divider-color);
+    padding-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: -2rem;
+    text-align: right;
+  }
+
+  ol.bibliography {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+
+    li {
+      margin-bottom: 1rem;
+
+      .preview {
+        width: 100%;
+        min-width: 80px;
+        max-width: 200px;
+      }
+
+      .abbr {
+        height: 2rem;
+        margin-bottom: 0.5rem;
+
+        abbr {
+          display: inline-block;
+          background-color: var(--global-theme-color);
+          padding-left: 1rem;
+          padding-right: 1rem;
+
+          a {
+            color: white;
+
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+
+        .award {
+          color: var(--global-theme-color) !important;
+          border: 1px solid var(--global-theme-color);
+        }
+      }
+
+      .title {
+        font-weight: bolder;
+      }
+
+      .author {
+        a {
+          border-bottom: 1px dashed var(--global-theme-color);
+
+          &:hover {
+            border-bottom-style: solid;
+            text-decoration: none;
+          }
+        }
+
+        >em {
+          border-bottom: 1px solid;
+          font-style: normal;
+        }
+
+        >span.more-authors {
+          color: var(--global-text-color-light);
+          border-bottom: 1px dashed var(--global-text-color-light);
+          cursor: pointer;
+
+          &:hover {
+            color: var(--global-text-color);
+            border-bottom: 1px dashed var(--global-text-color);
+          }
+        }
+      }
+
+      .links {
+        a.btn {
+          color: var(--global-text-color);
+          border: 1px solid var(--global-text-color);
+          padding-left: 1rem;
+          padding-right: 1rem;
+          padding-top: 0.25rem;
+          padding-bottom: 0.25rem;
+          margin-left: 0;
+
+          &:hover {
+            color: var(--global-theme-color);
+            border-color: var(--global-theme-color);
+          }
+        }
+      }
+// 
+//      .badges {
+//        padding-bottom: 0.5rem;
+//        span {
+//          display: inline-block;
+//          color: $black-color;
+//          height: 100%;
+//          padding-right: 0.5rem;
+//          vertical-align: middle;
+//      
+//          &:hover {
+//            text-decoration: underline;
+//          }
+//        }
+//      }
+//
+
+      .hidden {
+        font-size: 0.875rem;
+        max-height: 0px;
+        overflow: hidden;
+        text-align: justify;
+        transition-property: 0.15s ease;
+        -moz-transition: 0.15s ease;
+        -ms-transition: 0.15s ease;
+        -o-transition: 0.15s ease;
+        transition: all 0.15s ease;
+
+        p {
+          line-height: 1.4em;
+          margin: 10px;
+        }
+
+        pre {
+          font-size: 1em;
+          line-height: 1.4em;
+          padding: 10px;
+        }
+      }
+
+      .hidden.open {
+        max-height: 100em;
+        transition-property: 0.15s ease;
+        -moz-transition: 0.15s ease;
+        -ms-transition: 0.15s ease;
+        -o-transition: 0.15s ease;
+        transition: all 0.15s ease;
+      }
+
+      div.abstract.hidden {
+        border: dashed 1px var(--global-bg-color);
+      }
+
+      div.abstract.hidden.open {
+        border-color: var(--global-text-color);
+      }
+    }
+  }
+}
+
+
+
+
+/// Grid system
+//
+// Generate semantic grid columns with these mixins.
+
+@mixin make-container($gutter: $grid-gutter-width) {
+  width: 100%;
+  padding-right: $gutter * .5;
+  padding-left: $gutter * .5;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin make-row($gutter: $grid-gutter-width) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$gutter * .5;
+  margin-left: -$gutter * .5;
+}
+
+// For each breakpoint, define the maximum width of the container in a media query
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $container-max-width;
+    }
+  }
+  @include deprecate("The `make-container-max-widths` mixin", "v4.5.2", "v5");
+}
+
+@mixin make-col-ready($gutter: $grid-gutter-width) {
+  position: relative;
+  // Prevent columns from becoming too narrow when at smaller grid tiers by
+  // always setting `width: 100%;`. This works because we use `flex` values
+  // later on to override this initial width.
+  width: 100%;
+  padding-right: $gutter * .5;
+  padding-left: $gutter * .5;
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 percentage(divide($size, $columns));
+  // Add a `max-width` to ensure content within each column does not blow out
+  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+  // do not appear to require this.
+  max-width: percentage(divide($size, $columns));
+}
+
+@mixin make-col-auto() {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%; // Reset earlier grid tiers
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+  $num: divide($size, $columns);
+  margin-left: if($num == 0, 0, percentage($num));
+}
+
+// Row columns
+//
+// Specify on a parent element(e.g., .row) to force immediate children into NN
+// numberof columns. Supports wrapping to new lines, but does not do a Masonry
+// style grid.
+@mixin row-cols($count) {
+  > * {
+    flex: 0 0 divide(100%, $count);
+    max-width: divide(100%, $count);
+  }
+}

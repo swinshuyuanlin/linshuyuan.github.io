@@ -1,0 +1,230 @@
+# Site settings
+title: Shuyuan Lin
+url: "#" 
+baseurl: "" 
+baidu-analysis: a2b397dbd7421f79a8936cb9c2b93691
+#timezone: Asia/Hongkong
+description: >
+   My personal website.
+
+# Your information
+email: sylin@jnu.edu.cn
+author: Shuyuan Lin
+avatar: "/lsy.jpg"
+profile: Assistant Professor, Jinan University
+#twitter_username: twitter_username
+#github_username:  github_username
+
+#  arxiv: # URL - Update with the correct link to your profile
+#googlescholar: "https://scholar.google.com/citations?user=ASKKYSAAAAAJ"
+#  impactstory: # URL
+#  orcid: "http://orcid.org/yourorcidurl"
+#  pubmed: "https://www.ncbi.nlm.nih.gov/pubmed/?term="
+#  researchgate: # URL
+
+
+
+profile_links:
+
+
+# You can add more profile links above, or edit _includes/sidebar.html 
+
+# Comment Service
+#  choose one and un-comment the line to active it
+#disqus_shortname: xxx   # get one: https://disqus.com/admin/signup/
+#duoshuo_shortname: xxx  # get one: http://duoshuo.com/create-site/
+
+excerpt_separator: <!--more-->
+
+header:
+  links:             # Links on the header. Link to in-site page with a slash as prefix
+    Chinese: /about_cn/
+    #Publications: /publications/
+    #Category: /category/
+    #Fundings: /fundings/
+    #Awards: /awards/
+
+permalink: /archivers/:title
+plugins:
+ - jekyll-paginate
+ - jekyll-gist
+ - jemoji
+
+# Includes & excludes
+
+include:
+  - .htaccess
+  - _pages
+  - files
+exclude:
+  - bin
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+keep_files:
+  - CNAME
+  - .nojekyll
+  - .git
+  
+  
+# Build settings
+paginate: 5
+paginate_path: "page:num"
+
+highlighter: rouge
+markdown: kramdown
+
+# https://jekyllrb.com/docs/configuration/#precedence
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  math_engine: mathjax
+
+# Collections
+collections:
+  teaching:
+    output: true
+    permalink: /:collection/:path/
+  publications:
+    output: true
+    permalink: /:collection/:path/
+  projects:
+    output: true
+    permalink: /:collection/:path/
+  talks:
+    output: true
+    permalink: /:collection/:path/
+    
+ 
+
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+  # _teaching
+  - scope:
+      path: ""
+      type: teaching
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+  # _publications
+  - scope:
+      path: ""
+      type: publications
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+  # _projects
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _talks
+  - scope:
+      path: ""
+      type: talks
+    values:
+      layout: talk
+      author_profile: true
+      share: true
+      
+      
+      
+# -----------------------------------------------------------------------------
+# Jekyll Scholar
+# -----------------------------------------------------------------------------
+
+scholar:
+  last_name: [Lin, '林']
+  first_name: [Shuyuan, '舒源']
+  
+  #style: current-opinion
+  style: apa
+  locale: en
+  #bibliography_list_tag: 'div'
+  bibliography_item_tag: 'p'
+  #bibliography_list_tag: 'ui'
+  #bibliography_item_tag: 'li' 
+  
+  source: /_bibliography/
+  bibliography: bibliography.bib
+  bibliography_ref: references.bib
+  bibliography_template: bib 
+  
+  # Filter out certain bibtex entry keywords used internally from the bib output
+  filtered_bibtex_keywords: [abbr, abstract, altmetric, arxiv, bibtex_show, blog, code, html, pdf, poster, preview, selected, slides, supp, video, website, shorttitle]
+  
+  # Enables publication thumbnails. If disabled, none of the publications will display thumbnails, even if specified in the bib entry.
+  #enable_publication_thumbnails: true
+  #enable_selected_publication_thumbnails: true
+
+
+  #query: "@*"
+  #group_by: shorttitle
+  #group_order: descending
+  sort_by: language 
+  order: ascending 
+  
+  
+# Maximum number of authors to be shown for each publication (more authors are visible on click)
+#max_author_limit: 5  # leave blank to always show all authors
+#more_authors_animation_delay: 10  # more authors are revealed on click using animation; smaller delay means faster animation
+max_author_limit_patent: 4  # leave blank to always show all authors
+  
+  
+  
+# -----------------------------------------------------------------------------
+# Responsive WebP Images
+# -----------------------------------------------------------------------------
+
+# MAKE SURE imagemagick is installed and on your PATH before enabling imagemagick. In a terminal, run:
+#   convert -version
+imagemagick:
+  enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
+  widths:
+    - 480
+    - 800
+    - 1400
+  input_directories:
+    - assets/img/
+  input_formats:
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".tiff"
+    - ".gif"
+  output_formats:
+    webp: "-quality 85"

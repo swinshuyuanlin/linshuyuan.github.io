@@ -1,0 +1,111 @@
+---
+layout: default
+---
+
+
+<div class="home">
+
+{% for page in site.pages %}
+  {% if page.name == "about.md" %}
+    {{ page.content | markdownify }}
+  {% endif %}
+{% endfor %}
+<br>
+<hr>
+
+
+
+<!--<a class="rss-link" href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS Feed</a>-->
+<h1 class="page-heading"><b>News</b></h1>
+<ul>
+{% for post in site.posts %}
+<li>
+<span>[{{ post.date | date: "%b, %Y" }}]</span>  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+</li>
+{% endfor %}
+</ul>
+<br>
+<!-- Pagination links -->
+
+
+<hr>
+<!-- Start -->
+<h1 class="page-heading"><b><a href="{{ '/interests/' | relative_url }}" style="color: inherit;">Research interests</a></b></h1>
+{% for page in site.pages %}
+  {% if page.name == "interests.md" %}
+    {{ page.content | markdownify }}
+  {% endif %}
+{% endfor %}
+<!-- End -->
+
+
+<hr>
+<!-- Start -->
+<h1 class="page-heading"><b><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">Selected publications</a></b></h1>
+{%- include selected_papers.html %}
+<!-- End -->
+
+
+<hr>
+<!-- Start -->
+<h1 class="page-heading"><b><a href="{{ '/patents/' | relative_url }}" style="color: inherit;">Patents</a></b></h1>
+{%- include selected_patents.html %}
+<!-- End -->
+
+
+<hr>
+<!-- Start -->
+<h1 class="page-heading"><b><a href="{{ '/fundings/' | relative_url }}" style="color: inherit;">Fundings</a></b></h1>
+{% for page in site.pages %}
+  {% if page.name == "fundings.md" %}
+    {{ page.content | markdownify }}
+  {% endif %}
+{% endfor %}
+<!-- End -->
+
+
+<hr>
+<!-- Start -->
+<h1 class="page-heading"><b><a href="{{ '/teaching/' | relative_url }}" style="color: inherit;">Teaching</a></b></h1>
+<ul>
+{% for post in site.teaching reversed %}
+<li>
+    {% include archive-single.html %}
+</li>
+  {% endfor %}
+</ul>
+<!-- End -->
+
+
+
+<hr>
+<!-- Start -->
+<h1 class="page-heading"><b><a href="{{ '/awards/' | relative_url }}" style="color: inherit;">Awards</a></b></h1>
+{% for page in site.pages %}
+  {% if page.name == "awards.md" %}
+    {{ page.content | markdownify }}
+  {% endif %}
+{% endfor %}
+<!-- End -->
+
+<hr>
+<!-- Start -->
+<h1 class="page-heading"><b><a href="{{ '/services/' | relative_url }}" style="color: inherit;">Academic Services</a></b></h1>
+{% for page in site.pages %}
+  {% if page.name == "services.md" %}
+    {{ page.content | markdownify }}
+  {% endif %}
+{% endfor %}
+<!-- End -->
+
+<hr>
+<!-- Start -->
+<h1 class="page-heading"><b><a href="{{ '/members/' | relative_url }}" style="color: inherit;">Members</a></b></h1>
+{% for page in site.pages %}
+  {% if page.name == "members.md" %}
+    {{ page.content | markdownify }}
+  {% endif %}
+{% endfor %}
+<!-- End -->
+
+</div>
