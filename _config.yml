@@ -49,6 +49,7 @@ plugins:
  - jekyll-paginate
  - jekyll-gist
  - jemoji
+ - jekyll-scholar
 
 # Includes & excludes
 

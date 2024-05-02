@@ -6,11 +6,11 @@ permalink: "/members/"
 
 * Graduate
 
-	2023: Xiao Chen, Yu Guo
+	2021: Xiao Chen, Yu Guo
 
 	2022: Mengtin Lo, Hailian Liao
 
-	2021: Wenwu Peng, Siqi Gou, Taixiang Lin
+	2023: Wenwu Peng, Siqi Gou, Taixiang Lin
 
 * Undtergraduate
 
