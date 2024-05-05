@@ -1,4 +1,4 @@
-# MS
+# MSGSA
 Multi-Stage Network with Geometric Semantic Attention for Two-View Correspondence Learning
 # MSGSA implementation
 Pytorch implementation of MSGSA. 
@@ -19,6 +19,7 @@ To initiate training, please modify the 'config.py' file to specify the path. Su
 python main.py --run_mode=train 
 ```
 
+#Citation
 ```shell
 @article{lin2024multistage,
   title = {Multi-stage network with geometric semantic attention for two-view correspondence learning},
@@ -27,17 +28,5 @@ python main.py --run_mode=train
   year = {2024},
   journal = {IEEE Transactions on Image Processing},
   author = {Lin, Shuyuan and Chen, Xiao and Xiao, Guobao and Wang, Hanzi and Huang, Feiran and Weng, Jian},
-}
-```
-
-# Acknowledgement
-This code is inspired by OANet. If you use the part of code related to data generation, testing and evaluation, you should cite these paper and follow their license.
-```shell
-@inproceedings{zhang2019learning,
-  title={Learning two-view correspondences and geometry using order-aware network},
-  author={Zhang, Jiahui and Sun, Dawei and Luo, Zixin and Yao, Anbang and Zhou, Lei and Shen, Tianwei and Chen, Yurong and Quan, Long and Liao, Hongen},
-  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
-  pages={5845--5854},
-  year={2019}
 }
 ```
